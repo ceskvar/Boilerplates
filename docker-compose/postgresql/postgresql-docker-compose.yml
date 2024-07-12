@@ -1,0 +1,25 @@
+# Only for testing purposes do not use it in production environments
+# reference https://www.youtube.com/watch?v=uKlRp6CqpDg
+version: "3.8"
+services:
+  postgres:
+    image: postgres:12.0
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - DATABASE_HOST=127.0.0.1
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=transporte_publico
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "my_admin@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "mypassword"
+    ports:
+      - "80:80"
+    depends_on:
+      - postgres
+    

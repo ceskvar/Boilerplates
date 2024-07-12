@@ -1,1 +1,0 @@
-# Dcoker-compose boilerplates
